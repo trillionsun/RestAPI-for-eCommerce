@@ -1,14 +1,11 @@
-package com.ecommerce.apis.ecommerce.proController;
+package com.ecommerce.apis.ecommerce.Controllers.proController;
 
 
 import com.ecommerce.apis.ecommerce.entities.product;
 import com.ecommerce.apis.ecommerce.service.productService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

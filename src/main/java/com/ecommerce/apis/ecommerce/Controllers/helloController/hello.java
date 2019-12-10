@@ -1,4 +1,4 @@
-package com.ecommerce.apis.ecommerce.helloController;
+package com.ecommerce.apis.ecommerce.Controllers.helloController;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
