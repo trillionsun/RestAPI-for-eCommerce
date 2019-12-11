@@ -70,11 +70,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/auth/**")
-                .permitAll()
                 .antMatchers("/",
                         "/favicon.ico",
                         "/**/*.png",
+                        "/auth/**",
                         "/**/*.gif",
                         "/**/*.svg",
                         "/**/*.jpg",

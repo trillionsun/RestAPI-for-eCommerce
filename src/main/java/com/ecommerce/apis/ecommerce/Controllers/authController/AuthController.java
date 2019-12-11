@@ -51,6 +51,7 @@ public class AuthController {
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         UsernamePasswordAuthenticationToken uToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsernameOrEmail(), loginRequest.getPassword());
 
+        // 1. why JWT required for authenticate()
         Authentication authentication = authenticationManager.authenticate(uToken);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
