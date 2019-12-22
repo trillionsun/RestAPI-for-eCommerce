@@ -50,8 +50,6 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         UsernamePasswordAuthenticationToken uToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsernameOrEmail(), loginRequest.getPassword());
-
-        // 1. why JWT required for authenticate()
         Authentication authentication = authenticationManager.authenticate(uToken);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -66,12 +64,10 @@ public class AuthController {
             return new ResponseEntity(new ApiResponse(false, "Username is already taken!"),
                     HttpStatus.BAD_REQUEST);
         }
-
         if (userRepo.existsByEmail(signUpRequest.getEmail())) {
             return new ResponseEntity(new ApiResponse(false, "Email Address already in use!"),
                     HttpStatus.BAD_REQUEST);
         }
-
         // Creating user's account
         user user = new user(signUpRequest.getUsername(),
                 signUpRequest.getEmail(), signUpRequest.getPassword());

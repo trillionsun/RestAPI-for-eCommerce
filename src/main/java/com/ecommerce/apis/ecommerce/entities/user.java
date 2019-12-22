@@ -2,6 +2,8 @@ package com.ecommerce.apis.ecommerce.entities;
 
 import lombok.Data;
 import org.hibernate.annotations.NaturalId;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -52,7 +54,8 @@ public class user {
     @Column
     private int active;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn,
             inverseJoinColumns = @JoinColumn
